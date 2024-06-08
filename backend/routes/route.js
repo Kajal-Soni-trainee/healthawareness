@@ -1,0 +1,17 @@
+const express = require("express");
+const { registerUser, createPassword, loginUser, logout} = require("../controllers/controller");
+const {addSchedule,notiById, weeklyReport, showAllScheduleById, markAsDone, deleteSchedule, updateSchedule, getScheduleById } = require('../controllers/medi_schedule');
+const route = express.Router();
+//require('../middlewares/passport') ;
+route.post('/register',registerUser);
+route.post('/createPass',createPassword);
+route.post('/login',loginUser);
+route.post('/addSchedule', addSchedule);
+route.get('/getNotiById', notiById);
+route.get('/takenMedi', markAsDone);
+route.get('/logout', logout);
+route.get('/showSchedules', showAllScheduleById);
+route.get('/deleteSchedule', deleteSchedule);
+route.post('/updateSchedule', updateSchedule);
+route.get('/getScheduleById', getScheduleById);
+module.exports = route;
